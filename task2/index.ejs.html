@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <a href="/posts/new">Create New Post</a>
+    <ul>
+        % posts.forEach(post => { %>
+            <li>
+                <a href="/posts/%= post._id %>"%= post.title %></a>
+                <form action="/posts/%= post._id %?_method=DELETE" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+                <a href="/posts/%= post._id %/edit">Edit</a>
+            </li>
+        % }); %>
+    </ul>
+</body>
+</html>
